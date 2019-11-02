@@ -14,10 +14,12 @@ public class SMSScheduler {
 
     @Autowired
     UserRepository userRepository;
-
+    @Service
+    ItemService itemService;
     @Scheduled(fixedRate = 10000)
     public void sendSMSIfChange() {
         SMSOut smsout = new SMSOut();
+        ItemList
         List<User> users = userRepository.findAll();
         for(User u : users) {
             smsout.sendUpdate();
