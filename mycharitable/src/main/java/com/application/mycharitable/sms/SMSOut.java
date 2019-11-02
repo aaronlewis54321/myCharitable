@@ -11,7 +11,7 @@ public class SMSOut {
 
         Message message = Message
                 .creator(new PhoneNumber(phoneNumber), // to
-                        new PhoneNumber(System.getenv("+12018905613")), // from
+                        new PhoneNumber("+12018905613"), // from
                         "There has been an update to the inventory of items around you! \n Check it out by logging here: {}")
                 .create();
 
