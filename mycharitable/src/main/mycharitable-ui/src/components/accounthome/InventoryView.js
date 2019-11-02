@@ -28,20 +28,22 @@ class InventoryView extends Component {
         console.log(getItemsJson);
         console.log(this.state.itemList[0]);
         console.log("name of the name of the index 0 item: " + this.state.itemList[0].name);
-        // var rowArray = [];
-
-        // for (var i = 0; i < 2; i++) {
-        //     var rowArrayInner = [];
-        //     for (var j = 0; j < 4; j++) {
-        //         rowArrayInner.push(<MDBCol xs="12" md="3" style={{ marginTop: '5%' }}><CardItem /></MDBCol>);
-        //     }
-        //     rowArray.push(rowArrayInner);
-        // }
-        // console.log(rowArray);
-        // this.setState({
-        //     rowsOfItems: rowArray
-        // });
-        // console.log(this.state.rowsOfItems);
+        var rowArray = [];
+        var divisor = this.state.itemList.size() / 4;
+        var counter = 0;
+        for(var total = 0; total < divisor + 1; total++) {
+            var innerArray = [];
+            for(var i = 0; i < 4; i++) {
+                innerArray.push(<MDBCol><CardItem foodName={this.state.itemList[counter].name}></CardItem></MDBCol>);
+                counter++;
+            }
+            rowArray.push(innerArray);
+        }
+        console.log(rowArray);
+        this.setState({
+            rowsOfItems: rowArray[0]
+        });
+        console.log(this.state.rowsOfItems);
     }
 
     moveForward() {
@@ -89,7 +91,7 @@ class InventoryView extends Component {
                         <MDBAnimation type="fadeIn" duration="1s" delay="1s">
                             <MDBRow>
                                 {this.state.loading}
-                                {this.state.rowsOfItemsToDisplay}
+                                {this.state.rowsOfItems}
                             </MDBRow>
                             <MDBRow style={{ marginTop: '5%' }}>
                                 <MDBCol md="12" xs="12" className="align-content-center">

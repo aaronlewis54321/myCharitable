@@ -147,7 +147,7 @@ public class ItemHelper {
                 {
                     result += input.charAt(j);
                 }
-                System.out.println(result);
+                //System.out.println(result);
                 if (result.equals("ull,"))
                 {
                     return null;
