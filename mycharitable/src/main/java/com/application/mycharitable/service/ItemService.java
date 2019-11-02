@@ -15,10 +15,9 @@ public class ItemService {
     ItemRepository itemRepository;
 
     public List<Item> retrieveFromInventory() {
-        ArrayList<Item> items = new ArrayList<>();
-        //pull complete data
-        //loop and put donation data into item list
-        //fill in parsing algorithm
+        ItemHelper helper = new ItemHelper();
+        String apiKey = helper.getApiKey();
+        ArrayList<Item> items = helper.getItems(apiKey);
         return items;
     }
 
