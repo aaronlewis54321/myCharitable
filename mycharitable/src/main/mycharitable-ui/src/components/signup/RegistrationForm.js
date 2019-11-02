@@ -43,7 +43,7 @@ class RegistrationForm extends Component {
         event.preventDefault();
         var md5 = require('md5');
         var passwordHash = md5(this.state.password).substring(0, 6);
-        const createUserResponse = await fetch(`/api/users/createUser?email=${encodeURIComponent(this.state.email)}&password=${encodeURIComponent(passwordHash)}&fName=${encodeURIComponent(this.state.firstName)}&lName=${encodeURIComponent(this.state.lastName)}&phoneNumber=${encodeURIComponent(this.state.phoneNumber)}&ebtNumber=${encodeURIComponent(this.state.ebtNumber)}`);
+        const createUserResponse = await fetch(`/api/users/createUser?email=${encodeURIComponent(this.state.email)}&password=${encodeURIComponent(passwordHash)}&fName=${encodeURIComponent(this.state.firstName)}&lName=${encodeURIComponent(this.state.lastName)}&phoneNumber=${encodeURIComponent("+1" + this.state.phoneNumber)}&ebtNumber=${encodeURIComponent(this.state.ebtNumber)}`);
         const createUserJson = await createUserResponse.json();
         console.log(createUserJson);
         if(createUserJson.status === 500) {
