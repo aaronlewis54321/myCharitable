@@ -5,7 +5,7 @@ class Footer extends Component {
     render() {
         return (
             <div>
-                <MDBFooter color="green darken-4" className="font-small pt-4 mt-4">
+                <MDBFooter color="deep-orange darken-4" className="font-small pt-4 mt-4">
                     <MDBContainer fluid className="text-center">
                         <MDBRow>
                             <MDBCol md="12">

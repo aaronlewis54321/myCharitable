@@ -6,12 +6,13 @@ class RegistrationSuccess extends Component {
         return (
             <div>
                 <MDBAnimation type="fadeIn" duration="1s">
-                    <MDBContainer style={{marginTop: '5%'}}>
+                    <MDBContainer style={{marginTop: '5%', marginBottom: '20%'}}>
                         <MDBRow>
                             <h4>Thanks for registering, {this.props.firstName}!</h4>
                         </MDBRow>
                         <MDBRow>
                             <p>You can go to the following link in order to login to you account.</p>
+                            <br></br>
                             <MDBNavLink to="/login">Login</MDBNavLink>
                         </MDBRow>
                     </MDBContainer>

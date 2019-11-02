@@ -10,15 +10,22 @@ class HeroSection extends Component {
                     <MDBJumbotron fluid>
                         <MDBAnimation type="fadeIn" duration="1s" delay="0.5s">
                             <MDBContainer>
-                                <HeroNav  />
+                                <HeroNav />
                                 <MDBRow style={{ marginTop: '15%', textAlign: 'center' }}>
+                                    <MDBRow>
+                                        <MDBCol md="2"></MDBCol>
+                                        <MDBCol md="8">
+                                            
+                                        </MDBCol>
+                                        <MDBCol md="2"></MDBCol>
+                                    </MDBRow>
                                     <MDBCol md="2"></MDBCol>
                                     <MDBCol md="8">
                                         <h1>Welcome to MyCharitable</h1>
                                         <hr></hr>
                                         <h3>An Easy Way to Claim Your Meals</h3>
                                         <p>If your group of family and friends is trying to setup the perfect way to run your secret santa group, you've come to the right place!</p>
-                                        <MDBBtn rounded outline color="white" style={{ marginTop: '2%' }}><MDBNavLink to="/signup" className="getstartedlink" style={{fontSize: '0.8em', textDecoration: 'none', color: 'white'}}>Get Registered</MDBNavLink></MDBBtn>
+                                        <MDBBtn rounded outline color="white" style={{ marginTop: '2%' }}><MDBNavLink to="/signup" className="getstartedlink" style={{ fontSize: '0.8em', textDecoration: 'none', color: 'white' }}>Get Registered</MDBNavLink></MDBBtn>
                                     </MDBCol>
                                     <MDBCol md="2"></MDBCol>
                                 </MDBRow>
