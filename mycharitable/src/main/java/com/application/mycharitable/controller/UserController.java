@@ -20,8 +20,8 @@ public class UserController {
     }
 
     @RequestMapping("/createUser")
-    public User createUser(@RequestParam String email, @RequestParam String password, @RequestParam String phoneNumber, @RequestParam String ebtNumber) {
-        return userService.createUser(email, password, phoneNumber, ebtNumber);
+    public User createUser(@RequestParam String email, @RequestParam String password, @RequestParam String fName, @RequestParam String lName, @RequestParam String phoneNumber, @RequestParam String ebtNumber) {
+        return userService.createUser(email, password, fName, lName, phoneNumber, ebtNumber);
     }
 
 }

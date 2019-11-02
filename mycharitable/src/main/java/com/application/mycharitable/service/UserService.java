@@ -19,8 +19,8 @@ public class UserService {
     private UserRepository userRepository;
 
     //Create User
-    public User createUser(String email, String password, String phoneNumber, String ebtNumber) {
-        return userRepository.insert(new User(email, password, phoneNumber, ebtNumber));
+    public User createUser(String email, String password, String fName, String lName, String phoneNumber, String ebtNumber) {
+        return userRepository.insert(new User(email, password, fName, lName, phoneNumber, ebtNumber));
     }
 
     //Retrieve User

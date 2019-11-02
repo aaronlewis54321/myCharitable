@@ -7,6 +7,8 @@ public class User {
 
     private String email;
     private String password;
+    private String fName;
+    private String lName;
     private String phoneNumber;
     private String ebtNumber;
 
@@ -14,9 +16,11 @@ public class User {
 
     }
 
-    public User(String email, String password, String phoneNumber, String ebtNumber) {
+    public User(String email, String password, String fName, String lName, String phoneNumber, String ebtNumber) {
         this.email = email;
         this.password = password;
+        this.fName = fName;
+        this.lName = lName;
         this.phoneNumber = phoneNumber;
         this.ebtNumber = ebtNumber;
     }
@@ -33,9 +37,15 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public void setPassword(String password) { this.password = password; }
+
+    public String getFName() { return fName; }
+
+    public void setFName(String fName) { this.fName = fName; }
+
+    public String getLName() { return lName; }
+
+    public void setLName(String lName) { this.lName = lName; }
 
     public String getPhoneNumber() {
         return phoneNumber;
