@@ -19,13 +19,13 @@ public class UserService {
     private UserRepository userRepository;
 
     //Create User
-    public User createUser(String email, String password, String phoneNumber, String etbNumber) {
-        return userRepository.insert(new User(email, password, phoneNumber, etbNumber));
+    public User createUser(String email, String password, String phoneNumber, String ebtNumber) {
+        return userRepository.insert(new User(email, password, phoneNumber, ebtNumber));
     }
 
     //Retrieve User
     public User getUser(String email) {
-        User u;
+        User u;how to switch to jdk 8
 
         try {
             u = userRepository.findById(email).get();
