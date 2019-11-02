@@ -9,6 +9,13 @@ class SignUp extends Component {
         this.state = {
             formOrsuccess: <RegistrationForm />
         }
+        this.callBackFromSignUp = this.callBackFromSignUp.bind(this);
+    }
+
+    callBackFromSignUp = (dataFromChild) => {
+        this.setState({
+            formOrsuccess: dataFromChild
+        });
     }
 
     render() {
