@@ -20,6 +20,13 @@ public class ItemService {
         ItemHelper helper = new ItemHelper();
         String apiKey = helper.getApiKey();
         ItemList itemList = helper.getItems(apiKey);
+        return itemList;
+    }
+
+    public ItemList saveInventoryLocally() {
+        ItemHelper helper = new ItemHelper();
+        String apiKey = helper.getApiKey();
+        ItemList itemList = helper.getItems(apiKey);
         itemListRepository.save(itemList);
         return itemList;
     }
