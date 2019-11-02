@@ -25,7 +25,7 @@ public class UserService {
 
     //Retrieve User
     public User getUser(String email) {
-        User u;how to switch to jdk 8
+        User u;
 
         try {
             u = userRepository.findById(email).get();
