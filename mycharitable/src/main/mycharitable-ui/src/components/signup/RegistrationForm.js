@@ -49,8 +49,9 @@ class RegistrationForm extends Component {
         if(createUserJson.status === 500) {
             this.setState({ modalMessage: 'An account with that email already exists. Please use another email.'});
             this.toggle();
+        } else {
+            this.props.callback(<RegistrationSuccess firstName={this.state.firstName} />)
         }
-        this.props.callback(<RegistrationSuccess firstName={this.state.firstName} />)
     }
 
     toggle() {
