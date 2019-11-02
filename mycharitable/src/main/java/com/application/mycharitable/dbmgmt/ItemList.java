@@ -7,6 +7,8 @@ import java.util.List;
 @Document(collection = "itemList")
 public class ItemList {
 
+    @Id
+    private String name;
     private List<Item> items;
 
     public ItemList(List<Item> items) {
@@ -14,7 +16,7 @@ public class ItemList {
     }
 
     public ItemList() {
-
+        name = "Nameish";
     }
 
     public List<Item> getItems() {
