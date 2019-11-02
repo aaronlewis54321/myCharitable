@@ -97,7 +97,7 @@
 				</executions>
 				<configuration>
 					<nodeVersion>v10.16.3</nodeVersion>
-					<workingDirectory>src/main/secretsanta-ui</workingDirectory>
+					<workingDirectory>src/main/mycharitable-ui</workingDirectory>
 				</configuration>
 
 			</plugin>
@@ -116,7 +116,7 @@
 							<outputDirectory>target/classes/static</outputDirectory>
 							<resources>
 								<resource>
-									<directory>src/main/secretsanta-ui/build</directory>
+									<directory>src/main/mycharitable-ui/build</directory>
 									<filtering>true</filtering>
 								</resource>
 							</resources>
