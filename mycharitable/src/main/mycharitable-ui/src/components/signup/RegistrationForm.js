@@ -46,6 +46,10 @@ class RegistrationForm extends Component {
         const createUserResponse = await fetch(`/api/users/createUser?email=${encodeURIComponent(this.state.email)}&password=${encodeURIComponent(passwordHash)}&fName=${encodeURIComponent(this.state.firstName)}&lName=${encodeURIComponent(this.state.lastName)}&phoneNumber=${encodeURIComponent(this.state.phoneNumber)}&ebtNumber=${encodeURIComponent(this.state.ebtNumber)}`);
         const createUserJson = await createUserResponse.json();
         console.log(createUserJson);
+        if(createUserJson.status === 500) {
+            this.setState({ modalMessage: 'An account with that email already exists. Please use another email.'});
+            this.toggle();
+        }
         this.props.callback(<RegistrationSuccess firstName={this.state.firstName} />)
     }
 

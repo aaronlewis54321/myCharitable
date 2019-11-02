@@ -14,6 +14,7 @@ class Login extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toggle = this.toggle.toggle.bind(this);
     }
 
     handleChange(event) {
