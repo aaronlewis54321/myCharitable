@@ -4,6 +4,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import { MDBIcon, MDBBtn, MDBNavItem, MDBNavLink } from 'mdbreact';
+import {HashLink as Link} from 'react-router-hash-link';
+
 
 
 class HeroNav extends Component {
@@ -24,7 +26,7 @@ class HeroNav extends Component {
                                     <MDBNavLink to="/login">Log In</MDBNavLink>
                                 </MDBNavItem>
                                 <Nav.Item as="li">
-                                    <MDBBtn outline color="white" size="sm" onClick={this.props.modalToggle}>How it Works?</MDBBtn>
+                                    <MDBBtn outline color="white" size="sm"><Link to="/#whatwedo" className="whatwedolink">What We Do?</Link></MDBBtn>
                                 </Nav.Item>
                             </Nav>
                         </Col>
