@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Route, HashRouter as Router, Switch} from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import SignUp from './pages/SignUp';
 
 
 function App() {
@@ -15,8 +17,8 @@ function App() {
             <Router>
                 <Switch>
                     <Route exact path="/" component={LandingPage} />
+                    <Route exact path="/signup" component={SignUp} />
                 </Switch>
-                <Footer />
             </Router>
 
         </div>

@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
-import { MDBJumbotron, MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBAnimation } from 'mdbreact';
+import { MDBJumbotron, MDBContainer, MDBCol, MDBRow, MDBAnimation } from 'mdbreact';
+import HeroNav from '../navigation/HeroNav';
 
 class HeroSection extends Component {
     render() {
         return (
             <div className="hero-section">
-                {/* <MDBAnimation type="fadeIn" duration="1s">
+                <MDBAnimation type="fadeIn" duration="1s">
                     <MDBJumbotron fluid>
-                        <MDBAnimation type="fadeIn" duration="1s" delay="1s">
+                        <MDBAnimation type="fadeIn" duration="1s" delay="0.5s">
                             <MDBContainer>
-                                <HeroNav modalToggle={this.toggle} />
-                                <MDBRow className="hero-text-positioning" style={{ marginTop: '10%', textAlign: 'center' }}>
-                                    <MDBCol xs={0} md={5}>
-
-                                    </MDBCol>
-
-                                    <MDBCol xs={12} md={7}>
-                                        <h1>Secret Santa Generator</h1>
+                                <HeroNav  />
+                                <MDBRow style={{ marginTop: '15%', textAlign: 'center' }}>
+                                    <MDBCol md="2"></MDBCol>
+                                    <MDBCol md="8">
+                                        <h1>Welcome to MyCharitable</h1>
                                         <hr></hr>
-                                        <h3>Create your own Secret Santa group!</h3>
+                                        <h3>An Easy Way to Claim Your Meals</h3>
                                         <p>If your group of family and friends is trying to setup the perfect way to run your secret santa group, you've come to the right place!</p>
-                                        <MDBBtn rounded outline color="white" style={{ marginTop: '2%' }}><Link to="/#getstarted" className="getstartedlink">Get Started</Link><MDBIcon icon="gift" style={{ marginLeft: '5px' }} /> </MDBBtn>
+                                        {/* <MDBBtn rounded outline color="white" style={{ marginTop: '2%' }}><Link to="/#getstarted" className="getstartedlink">Get Started</Link><MDBIcon icon="gift" style={{ marginLeft: '5px' }} /> </MDBBtn> */}
                                     </MDBCol>
-
+                                    <MDBCol md="2"></MDBCol>
                                 </MDBRow>
                             </MDBContainer>
                         </MDBAnimation>
                     </MDBJumbotron>
-                </MDBAnimation> */}
+                </MDBAnimation>
             </div>
         );
     }

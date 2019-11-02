@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import HeroSection from '../components/landing/HeroSection';
 
 class LandingPage extends Component {
     render() {
