@@ -7,7 +7,7 @@ class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            formOrsuccess: <RegistrationForm />
+            formOrsuccess: <RegistrationForm callback={this.callBackFromSignUp}/>
         }
         this.callBackFromSignUp = this.callBackFromSignUp.bind(this);
     }

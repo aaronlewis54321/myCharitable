@@ -39,17 +39,17 @@ class LandingContent extends Component {
 
                 <MDBContainer style={{marginBottom: '10%'}}>
                     <h4 style={{ marginTop: '5%', textAlign: 'center' }} id="whatwedo">Who We Are?</h4>
-                    <MDBRow style={{ marginTop: '5%' }}>
-                        <MDBCol md="3">
+                    <MDBRow>
+                        <MDBCol md="3" style={{marginTop: '5%'}}>
                             <Card />
                         </MDBCol>
-                        <MDBCol md="3">
+                        <MDBCol md="3" style={{marginTop: '5%'}}>
                             <Card />
                         </MDBCol>
-                        <MDBCol md="3">
+                        <MDBCol md="3" style={{marginTop: '5%'}}>
                             <Card />
                         </MDBCol>
-                        <MDBCol md="3">
+                        <MDBCol md="3" style={{marginTop: '5%'}}>
                             <Card />
                         </MDBCol>
                     </MDBRow>

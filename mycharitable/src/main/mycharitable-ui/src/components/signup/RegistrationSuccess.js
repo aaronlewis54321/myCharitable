@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBContainer, MDBRow, MDBNavLink } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBNavLink, MDBAnimation } from 'mdbreact';
 
 class RegistrationSuccess extends Component {
     render() {

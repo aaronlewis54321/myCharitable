@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBAnimation, MDBBtn, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader } from 'mdbreact';
+import RegistrationSuccess from './RegistrationSuccess';
 
 class RegistrationForm extends Component {
     constructor(props) {
@@ -45,6 +46,7 @@ class RegistrationForm extends Component {
         const createUserResponse = await fetch(`/api/users/createUser?email=${encodeURIComponent(this.state.email)}&password=${encodeURIComponent(passwordHash)}&fName=${encodeURIComponent(this.state.firstName)}&lName=${encodeURIComponent(this.state.lastName)}&phoneNumber=${encodeURIComponent(this.state.phoneNumber)}&ebtNumber=${encodeURIComponent(this.state.ebtNumber)}`);
         const createUserJson = await createUserResponse.json();
         console.log(createUserJson);
+        this.props.callback(<RegistrationSuccess firstName={this.state.firstName} />)
     }
 
     toggle() {
@@ -52,6 +54,7 @@ class RegistrationForm extends Component {
             modal: !this.state.modal
         });
     }
+
 
     render() {
         return (

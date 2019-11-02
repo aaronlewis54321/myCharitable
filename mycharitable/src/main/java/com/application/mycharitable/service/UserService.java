@@ -24,7 +24,7 @@ public class UserService {
     }
 
     //Retrieve User
-    public User getUser(String email) {
+    public User getUser(String email, String password) {
         User u;
 
         try {
@@ -33,6 +33,9 @@ public class UserService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "", e);
         }
 
+        if (!password.equals(u.getPassword())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
         return u;
     }
 }

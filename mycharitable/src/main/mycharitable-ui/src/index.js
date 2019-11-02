@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import { Route, HashRouter as Router, Switch} from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import SignUp from './pages/SignUp';
+import Login from './pages/Login';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/signup" component={SignUp} />
+                    <Route exact path="/login" component={Login} />
                 </Switch>
             </Router>
 

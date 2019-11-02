@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBJumbotron, MDBContainer, MDBCol, MDBRow, MDBAnimation } from 'mdbreact';
+import { MDBJumbotron, MDBContainer, MDBCol, MDBRow, MDBAnimation, MDBNavLink, MDBBtn } from 'mdbreact';
 import HeroNav from '../navigation/HeroNav';
 
 class HeroSection extends Component {
@@ -18,7 +18,7 @@ class HeroSection extends Component {
                                         <hr></hr>
                                         <h3>An Easy Way to Claim Your Meals</h3>
                                         <p>If your group of family and friends is trying to setup the perfect way to run your secret santa group, you've come to the right place!</p>
-                                        {/* <MDBBtn rounded outline color="white" style={{ marginTop: '2%' }}><Link to="/#getstarted" className="getstartedlink">Get Started</Link><MDBIcon icon="gift" style={{ marginLeft: '5px' }} /> </MDBBtn> */}
+                                        <MDBBtn rounded outline color="white" style={{ marginTop: '2%' }}><MDBNavLink to="/signup" className="getstartedlink" style={{fontSize: '0.8em', textDecoration: 'none', color: 'white'}}>Get Registered</MDBNavLink></MDBBtn>
                                     </MDBCol>
                                     <MDBCol md="2"></MDBCol>
                                 </MDBRow>

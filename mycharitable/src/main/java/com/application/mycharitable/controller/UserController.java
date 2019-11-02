@@ -15,8 +15,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/getUser")
-    public User getUser(@RequestParam String email) {
-        return userService.getUser(email);
+    public User getUser(@RequestParam String email, @RequestParam String password) {
+        return userService.getUser(email, password);
     }
 
     @RequestMapping("/createUser")
