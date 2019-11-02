@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBInput } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBInput, MDBBtn } from 'mdbreact';
 
 class CardItem extends Component {
     constructor(props) {
@@ -41,6 +41,8 @@ class CardItem extends Component {
                     <MDBCardBody>
                         <MDBCardTitle>{this.props.foodName}</MDBCardTitle>
                         <MDBCardText>
+                            {this.props.desc}
+                            <hr></hr>
                             <MDBInput 
                                label="Quantity"
                                icon="hashtag"
@@ -53,6 +55,7 @@ class CardItem extends Component {
                                required
                                onChange={this.handleChange}
                             />
+                            <MDBBtn color="green darken-4">Add to Cart</MDBBtn>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

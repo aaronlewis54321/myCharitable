@@ -7,9 +7,7 @@ class InventoryView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            rowsOfItems: null,
-            rowsOfItemsToDisplay: null,
-            page: 0,
+            cardsToDisplay: [],
             loading: '',
             itemList: []
         }
@@ -28,47 +26,14 @@ class InventoryView extends Component {
         console.log(getItemsJson);
         console.log(this.state.itemList[0]);
         console.log("name of the name of the index 0 item: " + this.state.itemList[0].name);
-        var rowArray = [];
-        var divisor = this.state.itemList.size() / 4;
-        var counter = 0;
-        for(var total = 0; total < divisor + 1; total++) {
-            var innerArray = [];
-            for(var i = 0; i < 4; i++) {
-                innerArray.push(<MDBCol><CardItem foodName={this.state.itemList[counter].name}></CardItem></MDBCol>);
-                counter++;
-            }
-            rowArray.push(innerArray);
+        var cards = [];
+        for(var i = 0; i < this.state.itemList.length(); i++) {
+            cards.push(<MDBCol md="2" xs="12" style={{marginTop: '5%'}}><CardItem foodName={this.state.itemList[i].name} desc={this.state.itemList[i].description}></CardItem></MDBCol>);
         }
-        console.log(rowArray);
         this.setState({
-            rowsOfItems: rowArray[0]
-        });
-        console.log(this.state.rowsOfItems);
-    }
+            cardsToDisplay: cards
+        })
 
-    moveForward() {
-        if (this.state.page === this.state.rowsOfItems.length) {
-            this.setState({
-                page: 0
-            });
-        } else {
-            this.setState({
-                page: this.state.page + 1
-            });
-        }
-
-    }
-
-    moveBackward() {
-        if (this.state.page <= 1) {
-            this.setState({
-                page: this.state.rowsOfItems.length - 1
-            })
-        } else {
-            this.setState({
-                page: this.state.page - 1
-            })
-        }
     }
 
     render() {
@@ -84,20 +49,13 @@ class InventoryView extends Component {
                             </MDBRow>
                             <MDBRow style={{ marginTop: '5%' }}>
                                 <MDBCol>
-                                    <h4>Current Items Around You: </h4>
+                                    <h4>Current Items Around You: {this.state.loading}</h4>
                                 </MDBCol>
                             </MDBRow>
                         </MDBAnimation>
                         <MDBAnimation type="fadeIn" duration="1s" delay="1s">
                             <MDBRow>
-                                {this.state.loading}
                                 {this.state.rowsOfItems}
-                            </MDBRow>
-                            <MDBRow style={{ marginTop: '5%' }}>
-                                <MDBCol md="12" xs="12" className="align-content-center">
-                                    <MDBBtn onClick={this.moveBackward}><MDBIcon icon="angle-left" size="2x"></MDBIcon></MDBBtn>
-                                    <MDBBtn onClick={this.moveForward}><MDBIcon icon="angle-right" size="2x"></MDBIcon></MDBBtn>
-                                </MDBCol>
                             </MDBRow>
                         </MDBAnimation>
                     </MDBContainer>
