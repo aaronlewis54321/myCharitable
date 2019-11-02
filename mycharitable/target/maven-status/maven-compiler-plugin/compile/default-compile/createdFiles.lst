@@ -1,0 +1,5 @@
+com\application\mycharitable\repository\UserRepository.class
+com\application\mycharitable\controller\UserController.class
+com\application\mycharitable\dbmgmt\User.class
+com\application\mycharitable\MycharitableApplication.class
+com\application\mycharitable\service\UserService.class
