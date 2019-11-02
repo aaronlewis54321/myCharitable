@@ -26,8 +26,8 @@ class InventoryView extends Component {
             itemList: getItemsJson.items
         });
         console.log(getItemsJson);
-        console.log(this.stateitemList[0]);
-        console.log(this.state.itemList[0].name);
+        console.log(this.state.itemList[0]);
+        console.log("name of the name of the index 0 item: " + this.state.itemList[0].name);
         // var rowArray = [];
 
         // for (var i = 0; i < 2; i++) {
