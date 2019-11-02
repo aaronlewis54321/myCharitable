@@ -15,21 +15,24 @@ class InventoryView extends Component {
         this.moveForward = this.moveForward.bind(this);
     }
 
-    componentDidMount() {
-        var rowArray = [];
+    async componentDidMount() {
+        const getItemsResponse = await fetch(`/api/items/retrieveFromInventory`);
+        const getItemsJson = await getItemsResponse.json();
+        console.log(getItemsJson);
+        // var rowArray = [];
 
-        for (var i = 0; i < 2; i++) {
-            var rowArrayInner = [];
-            for (var j = 0; j < 4; j++) {
-                rowArrayInner.push(<MDBCol xs="12" md="3" style={{ marginTop: '5%' }}><CardItem /></MDBCol>);
-            }
-            rowArray.push(rowArrayInner);
-        }
-        console.log(rowArray);
-        this.setState({
-            rowsOfItems: rowArray
-        });
-        console.log(this.state.rowsOfItems);
+        // for (var i = 0; i < 2; i++) {
+        //     var rowArrayInner = [];
+        //     for (var j = 0; j < 4; j++) {
+        //         rowArrayInner.push(<MDBCol xs="12" md="3" style={{ marginTop: '5%' }}><CardItem /></MDBCol>);
+        //     }
+        //     rowArray.push(rowArrayInner);
+        // }
+        // console.log(rowArray);
+        // this.setState({
+        //     rowsOfItems: rowArray
+        // });
+        // console.log(this.state.rowsOfItems);
     }
 
     moveForward() {

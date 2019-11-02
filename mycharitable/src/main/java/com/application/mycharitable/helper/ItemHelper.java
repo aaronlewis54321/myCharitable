@@ -1,3 +1,8 @@
+package com.application.mycharitable.helper;
+
+import com.application.mycharitable.dbmgmt.Item;
+import com.application.mycharitable.dbmgmt.ItemList;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -59,7 +64,7 @@ public class ItemHelper {
     }
 
 
-    public static ArrayList<Item> getItems(String apiKey) {
+    public static ItemList getItems(String apiKey) {
         try {
 
             URL url = new URL("https://api-reg-apigee.ncrsilverlab.com/v2/inventory/items?limit=1000");
@@ -85,6 +90,7 @@ public class ItemHelper {
             conn.disconnect();
 
             ArrayList<Item> items = new ArrayList<Item>();
+            ItemList itemList = new ItemList();
             for (int i = 0; i < result.length()-12; i++)
             {
                 if (result.substring(i, i+9).equals("Donations"))
@@ -107,10 +113,11 @@ public class ItemHelper {
                         }
                     }
                     items.add(newItem(result.substring(lower, upper)));
+                    itemList.setItems(items);
                     i = upper;
                 }
             }
-            return items;
+            return itemList;
 
         } catch (MalformedURLException e) {
 

@@ -1,7 +1,9 @@
 package com.application.mycharitable.service;
 
 import com.application.mycharitable.dbmgmt.Item;
-import com.application.mycharitable.repository.ItemRepository;
+import com.application.mycharitable.dbmgmt.ItemList;
+import com.application.mycharitable.helper.ItemHelper;
+import com.application.mycharitable.repository.ItemListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +14,14 @@ import java.util.List;
 public class ItemService {
 
     @Autowired
-    ItemRepository itemRepository;
+    ItemListRepository itemListRepository;
 
-    public List<Item> retrieveFromInventory() {
+    public ItemList retrieveFromInventory() {
         ItemHelper helper = new ItemHelper();
         String apiKey = helper.getApiKey();
-        ArrayList<Item> items = helper.getItems(apiKey);
-        return items;
+        ItemList itemList = helper.getItems(apiKey);
+        itemListRepository.save(itemList);
+        return itemList;
     }
 
 }
