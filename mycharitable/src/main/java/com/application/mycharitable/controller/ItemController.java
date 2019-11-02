@@ -13,13 +13,5 @@ import java.util.List;
 @RequestMapping("/api/items/")
 public class ItemController {
 
-    @Autowired
-    private ItemService itemService;
-
-    //retrieveFromInventory
-    @RequestMapping("retrieveFromInventory")
-    public ItemList retrieveFromInventory() {
-        return itemService.retrieveFromInventory();
-    }
 
 }

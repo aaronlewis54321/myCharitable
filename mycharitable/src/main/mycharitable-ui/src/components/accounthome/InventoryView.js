@@ -9,16 +9,25 @@ class InventoryView extends Component {
         this.state = {
             rowsOfItems: null,
             rowsOfItemsToDisplay: null,
-            page: 0
+            page: 0,
+            loading: '',
+            itemList: []
         }
         this.moveBackward = this.moveBackward.bind(this);
         this.moveForward = this.moveForward.bind(this);
     }
 
     async componentDidMount() {
+        this.setState({ loading: <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>});
         const getItemsResponse = await fetch(`/api/items/retrieveFromInventory`);
         const getItemsJson = await getItemsResponse.json();
+        this.setState({ loading: '' });
+        this.setState({
+            itemList: getItemsJson.items
+        });
         console.log(getItemsJson);
+        console.log(this.stateitemList[0]);
+        console.log(this.state.itemList[0].name);
         // var rowArray = [];
 
         // for (var i = 0; i < 2; i++) {
@@ -79,6 +88,7 @@ class InventoryView extends Component {
                         </MDBAnimation>
                         <MDBAnimation type="fadeIn" duration="1s" delay="1s">
                             <MDBRow>
+                                {this.state.loading}
                                 {this.state.rowsOfItemsToDisplay}
                             </MDBRow>
                             <MDBRow style={{ marginTop: '5%' }}>
