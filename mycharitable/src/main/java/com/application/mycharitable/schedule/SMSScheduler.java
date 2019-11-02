@@ -28,10 +28,15 @@ public class SMSScheduler {
     @Autowired
     ItemListService itemListService;
 
+    @Scheduled(initialDelay = 1000, fixedRate = 846000)
+    public void saveInventory() {
+        itemListRepository.save(itemListService.retrieveFromInventory());
+    }
 
 
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 10000, initialDelay = 10000)
     public void sendSMSIfChange() {
+        System.out.println("Checking for inventory updates");
         SMSOut smsout = new SMSOut();
         ItemHelper helper = new ItemHelper();
         ItemList prev;

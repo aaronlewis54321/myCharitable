@@ -19,7 +19,7 @@ class InventoryView extends Component {
 
     async componentDidMount() {
         this.setState({ loading: <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>});
-        const getItemsResponse = await fetch(`/api/items/retrieveFromInventory`);
+        const getItemsResponse = await fetch(`/api/itemlist/getInventory`);
         const getItemsJson = await getItemsResponse.json();
         this.setState({ loading: '' });
         this.setState({

@@ -35,23 +35,23 @@ class Login extends Component {
         });
     }
 
-    handleSubmit(event) {
-        // event.preventDefault();
-        // var md5 = require('md5');
-        // var passwordHash = md5(this.state.password).substring(0, 6);
-        // const retrieveUserResponse = await fetch(`/api/users/getUser?email=${encodeURIComponent(this.state.email)}&password=${encodeURIComponent(passwordHash)}`);
-        // const retrieveUserJson = await retrieveUserResponse.json();
-        // console.log(retrieveUserJson);
-        // if(retrieveUserJson.status === 404) {
-        //     this.setState({ modalMessage: 'This user email does not exist! Please go to the sign up page to create an account.'});
-        //     this.toggle();
-        // } else if (retrieveUserJson.status === 403) {
-        //     this.setState({ modalMessage: 'You have entered the incorrect password. Please try again.'});
-        //     this.toggle();
-        // } else {
+    async handleSubmit(event) {
+        event.preventDefault();
+        var md5 = require('md5');
+        var passwordHash = md5(this.state.password).substring(0, 6);
+        const retrieveUserResponse = await fetch(`/api/users/getUser?email=${encodeURIComponent(this.state.email)}&password=${encodeURIComponent(passwordHash)}`);
+        const retrieveUserJson = await retrieveUserResponse.json();
+        console.log(retrieveUserJson);
+        if(retrieveUserJson.status === 404) {
+            this.setState({ modalMessage: 'This user email does not exist! Please go to the sign up page to create an account.'});
+            this.toggle();
+        } else if (retrieveUserJson.status === 403) {
+            this.setState({ modalMessage: 'You have entered the incorrect password. Please try again.'});
+            this.toggle();
+        } else {
                 console.log("should run callback");
                 this.props.callback(<InventoryView firstName="Naymish"/>);
-        // }
+        }
     }
 
     toggle() {

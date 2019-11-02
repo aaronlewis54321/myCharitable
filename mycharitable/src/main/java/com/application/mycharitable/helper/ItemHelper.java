@@ -90,7 +90,7 @@ public class ItemHelper {
             conn.disconnect();
 
             ArrayList<Item> items = new ArrayList<Item>();
-            ItemList itemList = new ItemList();
+            ItemList itemList = new ItemList(items, "Nameish");
             for (int i = 0; i < result.length()-12; i++)
             {
                 if (result.substring(i, i+9).equals("Donations"))

@@ -14,7 +14,7 @@ public class ItemList {
 
     public ItemList(List<Item> items, String name) {
         this.items = items;
-        this.name = "Nameish";
+        this.name = name;
     }
 
     public ItemList() {
