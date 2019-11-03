@@ -4,6 +4,7 @@ import com.application.mycharitable.dbmgmt.User;
 import com.application.mycharitable.repository.UserRepository;
 import com.application.mycharitable.dbmgmt.User;
 import com.application.mycharitable.repository.UserRepository;
+import com.application.mycharitable.sms.SMSOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,8 @@ public class UserService {
             User u = userRepository.findById(email).get();
             u.setShoppingCart(shoppingCart);
             userRepository.save(u);
+            SMSOut smsOut = new SMSOut();
+            smsOut.sendConfirmation(u.getFName(), u.getPhoneNumber(), u.getShoppingCart());
             return u;
         } else {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);

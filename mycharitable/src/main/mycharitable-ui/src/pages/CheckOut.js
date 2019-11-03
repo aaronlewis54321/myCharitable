@@ -42,7 +42,7 @@ class CheckOut extends Component {
                 <MDBContainer className="align-contents-center">
                     <MDBRow style={{marginTop: '5%'}}>
                         <MDBCol md="12">
-                            <h4 style={{textAlign: 'center'}}>Screenshot this QR Code to show to your vendor!</h4>
+                            <h4 style={{textAlign: 'center'}}>Screenshot or take a picture of this QR Code to show to your vendor!</h4>
                         </MDBCol>
                     </MDBRow>
                     <MDBRow style={{marginTop: '5%', marginBottom: '15%'}} center>

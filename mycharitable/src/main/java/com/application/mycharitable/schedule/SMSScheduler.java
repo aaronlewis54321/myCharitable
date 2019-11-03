@@ -52,7 +52,7 @@ public class SMSScheduler {
         if(prev.getItems().size() < newList.getItems().size()) {
             List<User> users = userRepository.findAll();
             for(User u : users) {
-                smsout.sendUpdate(u.getPhoneNumber());
+                smsout.sendUpdate(u.getFName(), u.getPhoneNumber());
             }
         }
 

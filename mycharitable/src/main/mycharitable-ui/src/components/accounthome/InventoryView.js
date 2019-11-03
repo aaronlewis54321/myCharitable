@@ -13,9 +13,8 @@ class InventoryView extends Component {
             itemList: [],
             modal: false,
             cartTable: [],
-            cartString: '',
-            checkoutLink: '',
-            nameOfNewItem: ''
+            cartArray: '',
+            checkoutLink: ''
         }
         this.toggle = this.toggle.bind(this);
         this.addToCart = this.addToCart.bind(this);
@@ -40,15 +39,11 @@ class InventoryView extends Component {
         });
         console.log("Name of new Item: " + this.state.nameOfNewItem);
         this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td></tr>);
+        this.state.cartArray.push(name);
+        console.log(this.state.cartArray);
         let myColor = { background: '#25D366', text: "#FFFFFF" };
-        var cartStringTemp = this.state.cartString + " " + this.state.nameOfNewItem;
-        console.log("CartStringTemp: " + cartStringTemp);
         this.setState({
-            cartString: cartStringTemp
-        });
-        console.log(this.state.cartString);
-        this.setState({
-            checkoutLink: "/qrCode/" + this.props.email + "/true/" + this.state.cartString
+            checkoutLink: "/qrCode/" + this.props.email + "/true/" + this.state.cartArray
         });
         console.log(this.state.checkoutLink);
         notify.show("Added " +  name + "to your cart!", "custom", 5000, myColor);
