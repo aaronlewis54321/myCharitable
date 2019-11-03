@@ -19,7 +19,6 @@ class InventoryView extends Component {
         this.toggle = this.toggle.bind(this);
         this.addToCart = this.addToCart.bind(this);
         this.clearCart = this.clearCart.bind(this);
-        this.checkout = this.checkout.bind(this);
     }
 
 
