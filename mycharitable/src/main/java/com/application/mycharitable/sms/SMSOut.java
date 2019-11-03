@@ -20,6 +20,8 @@ public class SMSOut {
     }
 
     public void sendConfirmation(String firstname, String phoneNumber, String confirm) {
+        Twilio.init("ACfcefce64e882c9d0366b8ccc4bebe753", "634c5634a2ba761f0bad219257741683");
+
         Message message = Message
                 .creator(new PhoneNumber(phoneNumber), // to
                         new PhoneNumber("+12018905613"), // from
