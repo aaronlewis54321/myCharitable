@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBContainer, MDBRow, MDBAnimation, MDBCol, MDBIcon, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBAnimation, MDBCol, MDBIcon, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBBtn, MDBTable, MDBTableHead, MDBTableBody, MDBNavLink } from 'mdbreact';
 import CardItem from '../../assests/CardItem';
 import Notifications, { notify } from 'react-notify-toast';
 
@@ -12,11 +12,14 @@ class InventoryView extends Component {
             loading: '',
             itemList: [],
             modal: false,
-            cartTable: []
+            cartTable: [],
+            cartString: '',
+            checkoutLink: ''
         }
         this.toggle = this.toggle.bind(this);
         this.addToCart = this.addToCart.bind(this);
         this.clearCart = this.clearCart.bind(this);
+        this.checkout = this.checkout.bind(this);
     }
 
 
@@ -24,6 +27,10 @@ class InventoryView extends Component {
         this.setState({
             modal: !this.state.modal
         });
+    }
+
+    checkout() {
+
     }
 
     clearCart() {
@@ -34,6 +41,9 @@ class InventoryView extends Component {
     addToCart(name, description, quantity) {
         this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td><td>{quantity}</td></tr>);
         let myColor = { background: '#25D366', text: "#FFFFFF" };
+        this.setState({
+            cartString: this.state.cartString + ", " + name
+        })
         notify.show("Added " + quantity + " " + name + "(s) to your cart!", "custom", 5000, myColor);
     }
 
@@ -41,6 +51,9 @@ class InventoryView extends Component {
         this.setState({ loading: <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div> });
         const getItemsResponse = await fetch(`/api/itemlist/getInventory`);
         const getItemsJson = await getItemsResponse.json();
+        this.setState({
+            checkoutLink: "/qrCode/" + encodeURIComponent(this.props.email) + "/true/" + this.state.cartString
+        })
         this.setState({ loading: '' });
         this.setState({ itemList: getItemsJson.items });
         console.log(getItemsJson);
@@ -103,14 +116,14 @@ class InventoryView extends Component {
                             </MDBTable>
                             <br></br>
                             <br></br>
+                            <MDBRow>
+                                <MDBBtn color="danger" onClick={this.clearCart} style={{marginLeft:'3%'}}>Clear Cart</MDBBtn>
+                            </MDBRow>
                             Wish you the best!
                         </span>
-                        <MDBRow>
-                            <MDBBtn color="danger" onClick={this.clearCart}>Clear Cart</MDBBtn>
-                        </MDBRow>
                     </MDBModalBody>
                     <MDBModalFooter>
-                        <MDBBtn color="success" href="/viewQRCode/:email/:password">Checkout!</MDBBtn>
+                        <MDBBtn color="success"><MDBNavLink to={this.state.checkoutLink}>Checkout!</MDBNavLink></MDBBtn>
                         <MDBBtn color="danger" onClick={this.toggle}>Close</MDBBtn>
                     </MDBModalFooter>
                 </MDBModal>

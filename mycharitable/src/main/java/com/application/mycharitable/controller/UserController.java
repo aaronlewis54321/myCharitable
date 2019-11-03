@@ -24,4 +24,18 @@ public class UserController {
         return userService.createUser(email, password, fName, lName, phoneNumber, ebtNumber);
     }
 
+    @RequestMapping("/setCart")
+    public User setCart(@RequestParam String email, @RequestParam boolean isLoggedIn, @RequestParam String shoppingCart) {
+        if(isLoggedIn) {
+            return userService.setCart(email, isLoggedIn, shoppingCart);
+        } else {
+            return null;
+        }
+    }
+
+    @RequestMapping("/getCart")
+    public String getCart(@RequestParam String email) {
+        return userService.getCart(email);
+    }
+
 }

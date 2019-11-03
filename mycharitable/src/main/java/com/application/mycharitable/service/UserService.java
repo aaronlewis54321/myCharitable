@@ -38,4 +38,22 @@ public class UserService {
         }
         return u;
     }
+
+    //setCart
+    public User setCart(String email, boolean isLoggedIn, String shoppingCart) {
+
+        if(isLoggedIn) {
+            User u = userRepository.findById(email).get();
+            u.setShoppingCart(shoppingCart);
+            return userRepository.save(u);
+        } else {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
+
+    }
+
+    //getCart
+    public String getCart(String email) {
+        return userRepository.findById(email).get().getShoppingCart();
+    }
 }

@@ -10,7 +10,7 @@ import { Route, HashRouter as Router, Switch} from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import SignUp from './pages/SignUp';
 import AccountHome from './pages/AccountHome';
-
+import CheckOut from './pages/CheckOut';
 
 function App() {
     return (
@@ -20,7 +20,7 @@ function App() {
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/signup" component={SignUp} />
                     <Route exact path="/login" component={AccountHome} />
-                    <Route exact path="/viewQRCode/:email/:password" component={AccountHome} />
+                    <Route exact path="/qrCode/:email/:isloggedin/:cart" component={CheckOut} />
                 </Switch>
             </Router>
 
