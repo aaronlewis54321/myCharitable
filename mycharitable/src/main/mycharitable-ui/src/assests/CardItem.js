@@ -34,7 +34,7 @@ class CardItem extends Component {
         }
         if(this.props.name === "Pasta") {
             this.setState({
-                pathToPic: '/burger.jpg'
+                pathToPic: '/pasta.jpg'
             })
         }
         if(this.props.name === "Chicken Strips") {

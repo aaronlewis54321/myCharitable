@@ -13,7 +13,7 @@ class InventoryView extends Component {
             itemList: [],
             modal: false,
             cartTable: [],
-            cartArray: '',
+            cartArray: [],
             checkoutLink: ''
         }
         this.toggle = this.toggle.bind(this);
@@ -34,10 +34,7 @@ class InventoryView extends Component {
     }
 
     addToCart(name, description) {
-        this.setState({
-            nameOfNewItem: name
-        });
-        console.log("Name of new Item: " + this.state.nameOfNewItem);
+        console.log("Name of new Item: " + name);
         this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td></tr>);
         this.state.cartArray.push(name);
         console.log(this.state.cartArray);
