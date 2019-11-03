@@ -20,7 +20,7 @@ class CheckOut extends Component {
 
         console.log("Email: " + email + "   isLoggedIn: " + isloggedin + "   cart: " + cart);
 
-        const setCartResponse = fetch(`/api/users/setCart?email=${encodeURIComponent(email)}&isLoggedIn=${encodeURIComponent(isloggedin)}&cart=${encodeURIComponent(cart)}`);
+        const setCartResponse = fetch(`/api/users/setCart?email=${encodeURIComponent(email)}&isLoggedIn=${encodeURIComponent(isloggedin)}&shoppingCart=${encodeURIComponent(cart)}`);
         const setCartJson = await setCartResponse.json();
         console.log("setCartJson");
         if (setCartJson.status === 403) {
