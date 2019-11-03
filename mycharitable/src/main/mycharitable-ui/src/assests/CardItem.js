@@ -5,8 +5,9 @@ class CardItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 0
+            quantity: ''
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
@@ -22,15 +23,9 @@ class CardItem extends Component {
             }
         });
 
-        if(value <= 0) {
-            this.setState({
-                [name]: 0
-            })
-        } else {
-            this.setState({
-                [name]: value
-            });
-        }
+        this.setState({
+            [name]: value
+        });
     }
 
     render() {
@@ -43,19 +38,19 @@ class CardItem extends Component {
                         <MDBCardText>
                             {this.props.desc}
                             <hr></hr>
-                            <MDBInput 
-                               label="Quantity"
-                               icon="hashtag"
-                               group
-                               type="number"
-                               validate
-                               error="wrong"
-                               success="right"
-                               name="value"
-                               required
-                               onChange={this.handleChange}
+                            <MDBInput
+                                label="Quantity"
+                                icon="hashtag"
+                                group
+                                type="number"
+                                validate
+                                error="wrong"
+                                success="right"
+                                name="quantity"
+                                required
+                                onChange={this.handleChange}
                             />
-                            <MDBBtn color="green darken-4" onClick={()=>this.props.addToCart(this.props.foodName, this.props.desc, this.state.value)}>Add to Cart</MDBBtn>
+                            <MDBBtn color="green darken-4" onClick={() => this.props.addToCart(this.props.foodName, this.props.desc, this.state.quantity)}>Add to Cart</MDBBtn>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

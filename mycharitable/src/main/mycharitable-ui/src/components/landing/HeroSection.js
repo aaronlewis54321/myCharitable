@@ -12,13 +12,6 @@ class HeroSection extends Component {
                             <MDBContainer>
                                 <HeroNav />
                                 <MDBRow style={{ marginTop: '15%', textAlign: 'center' }}>
-                                    <MDBRow>
-                                        <MDBCol md="2"></MDBCol>
-                                        <MDBCol md="8">
-                                            
-                                        </MDBCol>
-                                        <MDBCol md="2"></MDBCol>
-                                    </MDBRow>
                                     <MDBCol md="2"></MDBCol>
                                     <MDBCol md="8">
                                         <h1>Welcome to MyCharitable</h1>

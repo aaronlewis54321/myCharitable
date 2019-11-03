@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBRow, MDBAnimation, MDBCol, MDBIcon, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact';
 import CardItem from '../../assests/CardItem';
+import Notifications, { notify } from 'react-notify-toast';
 
 class InventoryView extends Component {
 
@@ -15,6 +16,7 @@ class InventoryView extends Component {
         }
         this.toggle = this.toggle.bind(this);
         this.addToCart = this.addToCart.bind(this);
+        this.clearCart = this.clearCart.bind(this);
     }
 
 
@@ -24,10 +26,17 @@ class InventoryView extends Component {
         });
     }
 
+    clearCart() {
+        var cartTableTemp = [];
+        this.setState({ cartTable: cartTableTemp });
+    }
+
     addToCart(name, description, quantity) {
         var cartTableTemp = [];
         cartTableTemp.push(<tr><td>1</td><td>{name}</td><td>{description}</td><td>{quantity}</td></tr>);
-        this.setState({cartTable: cartTableTemp});
+        this.setState({ cartTable: cartTableTemp });
+        let myColor = { background: '#0E1717', text: "#FFFFFF" };
+        notify.show("Added " + quantity + name + "(s) to your cart!", "custom", 5000, myColor);
     }
 
     async componentDidMount() {
@@ -50,6 +59,7 @@ class InventoryView extends Component {
     render() {
         return (
             <div>
+                <Notifications />
                 <MDBAnimation type="fadeIn" duration="1s">
                     <MDBContainer style={{ marginBottom: '10%' }}>
                         <MDBAnimation type="fadeIn" duration="1s" delay="0.5s">
@@ -68,6 +78,9 @@ class InventoryView extends Component {
                             <MDBRow>
                                 {this.state.cardsToDisplay}
                             </MDBRow>
+                            <MDBRow>
+                                <MDBBtn color="danger" onClick={this.clearCart}>Clear Cart</MDBBtn>
+                            </MDBRow>
                         </MDBAnimation>
                     </MDBContainer>
                     <div className="bottomright shoppingcarticon">
@@ -76,7 +89,7 @@ class InventoryView extends Component {
                 </MDBAnimation>
 
                 <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-                    <MDBModalHeader toggle={this.toggle}><span style={{ color: 'black' }}>Shopping Cart</span></MDBModalHeader>
+                    <MDBModalHeader toggle={this.toggle}><span style={{ color: 'black' }} className="shoppingcart">Shopping Cart</span></MDBModalHeader>
                     <MDBModalBody>
                         <span style={{ color: 'black' }}>
                             <MDBTable>
