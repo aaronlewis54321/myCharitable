@@ -40,18 +40,22 @@ class CheckOut extends Component {
             <div>
                 <NavBar />
                 <MDBContainer>
-                    <MDBRow>
+                    <MDBRow style={{marginTop: '5%'}}>
                         <MDBCol md="12">
                             <h4>Screenshot this QR Code to show to your vendor!</h4>
                         </MDBCol>
                     </MDBRow>
-                    <MDBRow>
-                        <QRCode 
-                            bgColor="#FFFFFF"
-                            fgColor="#000000"
-                            level="Q"
-                            style={{ width: 256 }}
-                            value={this.state.linkToCart} />
+                    <MDBRow style={{marginTop: '5%'}}>
+                        <MDBCol md="2"></MDBCol>
+                        <MDBCol md="8">
+                            <QRCode
+                                bgColor="#FFFFFF"
+                                fgColor="#000000"
+                                level="Q"
+                                style={{ width: 256 }}
+                                value={this.state.linkToCart} />
+                        </MDBCol>
+                        <MDBCol md="2"></MDBCol>
                     </MDBRow>
                 </MDBContainer>
                 <Footer />

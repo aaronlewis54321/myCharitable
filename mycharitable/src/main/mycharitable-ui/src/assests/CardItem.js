@@ -5,10 +5,70 @@ class CardItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            quantity: ''
+            quantity: '',
+            pathToPic: ''
         }
         this.handleChange = this.handleChange.bind(this);
     }
+
+    componentDidMount() {
+        if(this.props.name === "Burger") {
+            this.setState({
+                pathToPic: '/images/burger.jpg'
+            })
+        }
+        if(this.props.name === "Chicken Sandwich") {
+            this.setState({
+                pathToPic: '/images/chickensandwich.jpeg'
+            })
+        }
+        if(this.props.name === "Drink") {
+            this.setState({
+                pathToPic: '/images/drink.jpeg'
+            })
+        }
+        if(this.props.name === "Salad") {
+            this.setState({
+                pathToPic: '/images/salad.jpg'
+            })
+        }
+        if(this.props.name === "Pasta") {
+            this.setState({
+                pathToPic: '/images/burger.jpg'
+            })
+        }
+        if(this.props.name === "Chicken Strips") {
+            this.setState({
+                pathToPic: '/images/chickentenders.jpg'
+            })
+        }
+        if(this.props.name === "Fries") {
+            this.setState({
+                pathToPic: '/images/fries.jpeg'
+            })
+        }
+        if(this.props.name === "Soup") {
+            this.setState({
+                pathToPic: '/images/soup.jpeg'
+            })
+        }
+        if(this.props.name === "Ramen") {
+            this.setState({
+                pathToPic: '/images/ramen.jpg'
+            })
+        }
+        if(this.props.name === "Pizza") {
+            this.setState({
+                pathToPic: '/images/pizza.jpg'
+            })
+        }
+        if(this.props.name === "Hummus plate") {
+            this.setState({
+                pathToPic: '/images/hummus.jpg'
+            })
+        }
+    }
+
 
     handleChange(event) {
         const target = event.target;
@@ -32,7 +92,7 @@ class CardItem extends Component {
         return (
             <div>
                 <MDBCard style={{ width: "100%" }}>
-                    <MDBCardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" waves />
+                    <MDBCardImage className="img-fluid" src="/images/" waves />
                     <MDBCardBody>
                         <MDBCardTitle>{this.props.foodName}</MDBCardTitle>
                         <MDBCardText>

@@ -29,10 +29,6 @@ class InventoryView extends Component {
         });
     }
 
-    checkout() {
-
-    }
-
     clearCart() {
         var cartTableTemp = [];
         this.setState({ cartTable: cartTableTemp });
@@ -42,7 +38,7 @@ class InventoryView extends Component {
         this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td><td>{quantity}</td></tr>);
         let myColor = { background: '#25D366', text: "#FFFFFF" };
         this.setState({
-            cartString: this.state.cartString + ", " + name
+            cartString: this.state.cartString + " " + name
         })
         notify.show("Added " + quantity + " " + name + "(s) to your cart!", "custom", 5000, myColor);
     }
@@ -123,7 +119,7 @@ class InventoryView extends Component {
                         </span>
                     </MDBModalBody>
                     <MDBModalFooter>
-                        <MDBBtn color="success"><MDBNavLink to={this.state.checkoutLink}>Checkout!</MDBNavLink></MDBBtn>
+                        <MDBNavLink href={this.state.checkoutLink}>Checkout!</MDBNavLink>
                         <MDBBtn color="danger" onClick={this.toggle}>Close</MDBBtn>
                     </MDBModalFooter>
                 </MDBModal>
