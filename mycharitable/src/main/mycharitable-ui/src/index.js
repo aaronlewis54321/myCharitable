@@ -20,6 +20,7 @@ function App() {
                     <Route exact path="/" component={LandingPage} />
                     <Route exact path="/signup" component={SignUp} />
                     <Route exact path="/login" component={AccountHome} />
+                    <Route exact path="/viewQRCode/:email/:password" component={AccountHome} />
                 </Switch>
             </Router>
 

@@ -6,9 +6,9 @@ class Card extends Component {
         return (
             <div>
                 <MDBCard style={{ width: "100%" }}>
-                    <MDBCardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" waves />
+                    <MDBCardImage className="img-fluid" src={this.props.imagePic} waves />
                     <MDBCardBody>
-                        <MDBCardTitle>Card title</MDBCardTitle>
+                        <MDBCardTitle>{this.props.name}</MDBCardTitle>
                         <MDBCardText>
                             Some quick example text to build on the card title and make
                             up the bulk of the card&apos;s content.

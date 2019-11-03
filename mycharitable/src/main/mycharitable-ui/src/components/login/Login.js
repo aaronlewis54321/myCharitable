@@ -50,7 +50,7 @@ class Login extends Component {
             this.toggle();
         } else {
                 //console.log("should run callback");
-                this.props.callback(<InventoryView firstName={this.state.firstName}/>);
+                this.props.callback(<InventoryView firstName={retrieveUserJson.fname}/>);
         }
     }
 
@@ -106,7 +106,7 @@ class Login extends Component {
                                     </MDBCol>
                                 </MDBRow>
                                 <MDBRow className="justify-content-center" style={{ marginBottom: '10%' }}>
-                                    <MDBBtn color="success" type="submit">Login</MDBBtn>
+                                    <MDBBtn color="indigo lighten-1" type="submit" style={{color: 'white'}}>Login</MDBBtn>
                                 </MDBRow>
                             </form>
                         </MDBAnimation>

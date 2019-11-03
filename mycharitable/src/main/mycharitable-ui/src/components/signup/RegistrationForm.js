@@ -165,7 +165,7 @@ class RegistrationForm extends Component {
                                     </MDBCol>
                                 </MDBRow>
                                 <MDBRow className="justify-content-center" style={{ marginBottom: '5%' }}>
-                                    <MDBBtn color="success" type="submit">Register</MDBBtn>
+                                    <MDBBtn color=" indigo lighten-1" type="submit" style={{color: 'white'}}>Register</MDBBtn>
                                 </MDBRow>
                             </form>
                         </MDBAnimation>

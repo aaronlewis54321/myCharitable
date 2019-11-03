@@ -32,11 +32,9 @@ class InventoryView extends Component {
     }
 
     addToCart(name, description, quantity) {
-        var cartTableTemp = [];
-        cartTableTemp.push(<tr><td>1</td><td>{name}</td><td>{description}</td><td>{quantity}</td></tr>);
-        this.setState({ cartTable: cartTableTemp });
-        let myColor = { background: '#0E1717', text: "#FFFFFF" };
-        notify.show("Added " + quantity + name + "(s) to your cart!", "custom", 5000, myColor);
+        this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td><td>{quantity}</td></tr>);
+        let myColor = { background: '#25D366', text: "#FFFFFF" };
+        notify.show("Added " + quantity + " " + name + "(s) to your cart!", "custom", 5000, myColor);
     }
 
     async componentDidMount() {
@@ -78,9 +76,7 @@ class InventoryView extends Component {
                             <MDBRow>
                                 {this.state.cardsToDisplay}
                             </MDBRow>
-                            <MDBRow>
-                                <MDBBtn color="danger" onClick={this.clearCart}>Clear Cart</MDBBtn>
-                            </MDBRow>
+
                         </MDBAnimation>
                     </MDBContainer>
                     <div className="bottomright shoppingcarticon">
@@ -109,9 +105,12 @@ class InventoryView extends Component {
                             <br></br>
                             Wish you the best!
                         </span>
+                        <MDBRow>
+                            <MDBBtn color="danger" onClick={this.clearCart}>Clear Cart</MDBBtn>
+                        </MDBRow>
                     </MDBModalBody>
                     <MDBModalFooter>
-                        <MDBBtn color="success">Checkout!</MDBBtn>
+                        <MDBBtn color="success" href="/viewQRCode/:email/:password">Checkout!</MDBBtn>
                         <MDBBtn color="danger" onClick={this.toggle}>Close</MDBBtn>
                     </MDBModalFooter>
                 </MDBModal>
