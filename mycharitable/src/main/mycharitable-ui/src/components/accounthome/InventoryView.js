@@ -38,12 +38,14 @@ class InventoryView extends Component {
         this.setState({
             nameOfNewItem: name
         });
+        console.log("Name of new Item: " + this.state.nameOfNewItem);
         this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td></tr>);
         let myColor = { background: '#25D366', text: "#FFFFFF" };
         var cartStringTemp = this.state.cartString + " " + this.state.nameOfNewItem;
+        console.log("CartStringTemp: " + cartStringTemp);
         this.setState({
             cartString: cartStringTemp
-        })
+        });
         console.log(this.state.cartString);
         this.setState({
             checkoutLink: "/qrCode/" + this.props.email + "/true/" + this.state.cartString

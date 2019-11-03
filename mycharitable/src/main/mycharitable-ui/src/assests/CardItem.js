@@ -103,6 +103,8 @@ class CardItem extends Component {
                         <MDBCardText>
                             <hr></hr>
                             {this.props.desc}
+                            <br></br>
+                            <br></br>
                             <MDBBtn color="green darken-4" onClick={() => this.props.addToCart(this.props.name, this.props.desc)} style={{float: 'right'}}>Add to Cart</MDBBtn>
                         </MDBCardText>
                     </MDBCardBody>
