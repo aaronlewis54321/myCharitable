@@ -18,20 +18,11 @@ class InventoryView extends Component {
         const getItemsResponse = await fetch(`/api/itemlist/getInventory`);
         const getItemsJson = await getItemsResponse.json();
         this.setState({ loading: '' });
-        this.setState({
-            itemList: getItemsJson.items
-        });
+        this.setState({ itemList: getItemsJson.items });
         console.log(getItemsJson);
-        console.log(this.state.itemList[0]);
-        console.log("name of the name of the index 0 item: " + this.state.itemList[0].name);
-        var cards = [];
-        for(var i = 0; i < this.state.itemList.length(); i++) {
-            cards.push(<MDBCol md="2" xs="12" style={{marginTop: '5%'}}><CardItem foodName={this.state.itemList[i].name} desc={this.state.itemList[i].description}></CardItem></MDBCol>);
+        for(var i = 0; i < this.state.itemList.length; i++) {
+            this.state.cardsToDisplay.push(<MDBCol md="2" xs="12" style={{marginTop: '5%'}}><CardItem foodName={this.state.itemList[i].name} desc={this.state.itemList[i].description}></CardItem></MDBCol>);
         }
-        this.setState({
-            cardsToDisplay: cards
-        })
-
     }
 
     render() {

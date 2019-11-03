@@ -49,7 +49,7 @@ class Login extends Component {
             this.setState({ modalMessage: 'You have entered the incorrect password. Please try again.'});
             this.toggle();
         } else {
-                console.log("should run callback");
+                //console.log("should run callback");
                 this.props.callback(<InventoryView firstName="Naymish"/>);
         }
     }
