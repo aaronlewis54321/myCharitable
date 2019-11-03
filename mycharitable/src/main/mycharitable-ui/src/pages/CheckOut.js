@@ -39,15 +39,14 @@ class CheckOut extends Component {
         return (
             <div>
                 <NavBar />
-                <MDBContainer>
+                <MDBContainer className="align-contents-center">
                     <MDBRow style={{marginTop: '5%'}}>
                         <MDBCol md="12">
-                            <h4>Screenshot this QR Code to show to your vendor!</h4>
+                            <h4 style={{textAlign: 'center'}}>Screenshot this QR Code to show to your vendor!</h4>
                         </MDBCol>
                     </MDBRow>
-                    <MDBRow style={{marginTop: '5%'}}>
-                        <MDBCol md="2"></MDBCol>
-                        <MDBCol md="8">
+                    <MDBRow style={{marginTop: '5%', marginBottom: '15%'}} center>
+                        <MDBCol md="4">
                             <QRCode
                                 bgColor="#FFFFFF"
                                 fgColor="#000000"
@@ -55,7 +54,6 @@ class CheckOut extends Component {
                                 style={{ width: 256 }}
                                 value={this.state.linkToCart} />
                         </MDBCol>
-                        <MDBCol md="2"></MDBCol>
                     </MDBRow>
                 </MDBContainer>
                 <Footer />

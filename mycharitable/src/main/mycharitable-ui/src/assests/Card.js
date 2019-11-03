@@ -10,8 +10,7 @@ class Card extends Component {
                     <MDBCardBody>
                         <MDBCardTitle>{this.props.name}</MDBCardTitle>
                         <MDBCardText>
-                            Some quick example text to build on the card title and make
-                            up the bulk of the card&apos;s content.
+                            Cool Kids Club Member
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

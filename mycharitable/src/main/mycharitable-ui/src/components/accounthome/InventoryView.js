@@ -14,7 +14,8 @@ class InventoryView extends Component {
             modal: false,
             cartTable: [],
             cartString: '',
-            checkoutLink: ''
+            checkoutLink: '',
+            nameOfNewItem: ''
         }
         this.toggle = this.toggle.bind(this);
         this.addToCart = this.addToCart.bind(this);
@@ -33,11 +34,13 @@ class InventoryView extends Component {
         this.setState({ cartTable: cartTableTemp });
     }
 
-    addToCart(name, description, quantity) {
-        this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td><td>{quantity}</td></tr>);
+    addToCart(name, description) {
+        this.setState({
+            nameOfNewItem: name
+        });
+        this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td></tr>);
         let myColor = { background: '#25D366', text: "#FFFFFF" };
-        var cartStringTemp = this.state.cartString;
-        cartStringTemp = cartStringTemp + " " + name;
+        var cartStringTemp = this.state.cartString + " " + this.state.nameOfNewItem;
         this.setState({
             cartString: cartStringTemp
         })
@@ -46,7 +49,7 @@ class InventoryView extends Component {
             checkoutLink: "/qrCode/" + this.props.email + "/true/" + this.state.cartString
         });
         console.log(this.state.checkoutLink);
-        notify.show("Added " + quantity + " " + name + "(s) to your cart!", "custom", 5000, myColor);
+        notify.show("Added " +  name + "to your cart!", "custom", 5000, myColor);
     }
 
     async componentDidMount() {
@@ -106,7 +109,6 @@ class InventoryView extends Component {
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Description</th>
-                                        <th>Quantity</th>
                                     </tr>
                                 </MDBTableHead>
                                 <MDBTableBody>

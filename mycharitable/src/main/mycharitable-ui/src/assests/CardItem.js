@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBInput, MDBBtn } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBBtn } from 'mdbreact';
 
 class CardItem extends Component {
     constructor(props) {
@@ -101,21 +101,9 @@ class CardItem extends Component {
                     <MDBCardBody>
                         <MDBCardTitle>{this.props.name}</MDBCardTitle>
                         <MDBCardText>
-                            {this.props.desc}
                             <hr></hr>
-                            <MDBInput
-                                label="Quantity"
-                                icon="hashtag"
-                                group
-                                type="number"
-                                validate
-                                error="wrong"
-                                success="right"
-                                name="quantity"
-                                required
-                                onChange={this.handleChange}
-                            />
-                            <MDBBtn color="green darken-4" onClick={() => this.props.addToCart(this.props.name, this.props.desc, this.state.quantity)}>Add to Cart</MDBBtn>
+                            {this.props.desc}
+                            <MDBBtn color="green darken-4" onClick={() => this.props.addToCart(this.props.name, this.props.desc)} style={{float: 'right'}}>Add to Cart</MDBBtn>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

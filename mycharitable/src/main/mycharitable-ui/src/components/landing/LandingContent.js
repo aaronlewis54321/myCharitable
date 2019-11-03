@@ -57,7 +57,7 @@ class LandingContent extends Component {
                     <h3 style={{ marginTop: '5%', textAlign: 'center' }} id="whatwedo">Who We Are</h3>
                     <MDBRow>
                         <MDBCol md="3" style={{ marginTop: '5%' }}>
-                            <Card imagePic="/Naymish.jpg" name="Naymish" />
+                            <Card imagePic="/Naymish.jpg" name="Naymish"/>
                         </MDBCol>
                         <MDBCol md="3" style={{ marginTop: '5%' }}>
                             <Card imagePic="/Aaron.jpg" name="Aaron" />
