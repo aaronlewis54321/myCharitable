@@ -44,7 +44,7 @@ class InventoryView extends Component {
                         </MDBAnimation>
                         <MDBAnimation type="fadeIn" duration="1s" delay="1s">
                             <MDBRow>
-                                {this.state.rowsOfItems}
+                                {this.state.cardsToDisplay}
                             </MDBRow>
                         </MDBAnimation>
                     </MDBContainer>
