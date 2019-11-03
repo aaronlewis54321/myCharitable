@@ -89,7 +89,7 @@ class InventoryView extends Component {
                         </MDBAnimation>
                     </MDBContainer>
                     <div className="bottomright shoppingcarticon">
-                        <MDBBtn rounded outline color="white" onClick={this.toggle}><MDBIcon icon="shopping-cart" size="2x"></MDBIcon></MDBBtn>
+                        <MDBBtn rounded outline color="black" onClick={this.toggle}><MDBIcon icon="shopping-cart" size="1x"></MDBIcon></MDBBtn>
                     </div>
                 </MDBAnimation>
 
@@ -113,7 +113,7 @@ class InventoryView extends Component {
                             <br></br>
                             <br></br>
                             <MDBRow>
-                                <MDBBtn color="danger" onClick={this.clearCart} style={{marginLeft:'3%'}}>Clear Cart</MDBBtn>
+                                <MDBBtn color="danger" onClick={this.clearCart} style={{ marginLeft: '3%' }}>Clear Cart</MDBBtn>
                             </MDBRow>
                             Wish you the best!
                         </span>

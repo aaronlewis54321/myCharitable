@@ -67,6 +67,11 @@ class CardItem extends Component {
                 pathToPic: '/hummus.jpg'
             })
         }
+        if(this.props.name === "Smoothie") {
+            this.setState({
+                pathToPic: '/smoothie.jpg'
+            })
+        }
     }
 
 
@@ -110,7 +115,7 @@ class CardItem extends Component {
                                 required
                                 onChange={this.handleChange}
                             />
-                            <MDBBtn color="green darken-4" onClick={() => this.props.addToCart(this.props.foodName, this.props.desc, this.state.quantity)}>Add to Cart</MDBBtn>
+                            <MDBBtn color="green darken-4" onClick={() => this.props.addToCart(this.props.name, this.props.desc, this.state.quantity)}>Add to Cart</MDBBtn>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
