@@ -94,7 +94,7 @@ class CardItem extends Component {
                 <MDBCard style={{ width: "100%" }}>
                     <MDBCardImage className="img-fluid" src={this.state.pathToPic} waves />
                     <MDBCardBody>
-                        <MDBCardTitle>{this.props.foodName}</MDBCardTitle>
+                        <MDBCardTitle>{this.props.name}</MDBCardTitle>
                         <MDBCardText>
                             {this.props.desc}
                             <hr></hr>
