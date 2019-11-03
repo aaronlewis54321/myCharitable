@@ -20,9 +20,14 @@ class InventoryView extends Component {
         this.setState({ loading: '' });
         this.setState({ itemList: getItemsJson.items });
         console.log(getItemsJson);
+        console.log(this.state.itemList.length);
+        var cards = []
         for(var i = 0; i < this.state.itemList.length; i++) {
-            this.state.cardsToDisplay.push(<MDBCol md="2" xs="12" style={{marginTop: '5%'}}><CardItem foodName={this.state.itemList[i].name} desc={this.state.itemList[i].description}></CardItem></MDBCol>);
+           cards.push(<MDBCol md="2" xs="12" style={{marginTop: '5%'}}><CardItem foodName={this.state.itemList[i].name} desc={this.state.itemList[i].description}></CardItem></MDBCol>);
         }
+        this.setState({
+            cardsToDisplay: cards
+        });
     }
 
     render() {
