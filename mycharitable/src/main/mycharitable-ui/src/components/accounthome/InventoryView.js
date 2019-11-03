@@ -39,6 +39,10 @@ class InventoryView extends Component {
         this.setState({
             cartString: this.state.cartString + " " + name
         })
+        this.setState({
+            checkoutLink: "/qrCode/" + encodeURIComponent(this.props.email) + "/true/" + encodeURIComponent(this.state.cartString)
+        });
+        console.log(this.state.checkoutLink);
         notify.show("Added " + quantity + " " + name + "(s) to your cart!", "custom", 5000, myColor);
     }
 
@@ -46,9 +50,6 @@ class InventoryView extends Component {
         this.setState({ loading: <div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div> });
         const getItemsResponse = await fetch(`/api/itemlist/getInventory`);
         const getItemsJson = await getItemsResponse.json();
-        this.setState({
-            checkoutLink: "/qrCode/" + encodeURIComponent(this.props.email) + "/true/" + encodeURIComponent(this.state.cartString)
-        })
         this.setState({ loading: '' });
         this.setState({ itemList: getItemsJson.items });
         console.log(getItemsJson);
@@ -88,7 +89,7 @@ class InventoryView extends Component {
                         </MDBAnimation>
                     </MDBContainer>
                     <div className="bottomright shoppingcarticon">
-                        <MDBBtn rounded outline color="white" onClick={this.toggle}><MDBIcon icon="shopping-cart" className="black-text"></MDBIcon></MDBBtn>
+                        <MDBBtn rounded outline color="white" onClick={this.toggle}><MDBIcon icon="shopping-cart" size="2x"></MDBIcon></MDBBtn>
                     </div>
                 </MDBAnimation>
 
