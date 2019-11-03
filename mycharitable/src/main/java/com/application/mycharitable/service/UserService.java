@@ -45,7 +45,8 @@ public class UserService {
         if(isLoggedIn) {
             User u = userRepository.findById(email).get();
             u.setShoppingCart(shoppingCart);
-            return userRepository.save(u);
+            userRepository.save(u);
+            return u;
         } else {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }

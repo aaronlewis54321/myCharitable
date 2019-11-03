@@ -37,10 +37,10 @@ class InventoryView extends Component {
         this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td><td>{quantity}</td></tr>);
         let myColor = { background: '#25D366', text: "#FFFFFF" };
         this.setState({
-            cartString: this.state.cartString + " " + name
+            cartString: name + " " + this.state.cartString
         })
         this.setState({
-            checkoutLink: "/qrCode/" + encodeURIComponent(this.props.email) + "/true/" + encodeURIComponent(this.state.cartString)
+            checkoutLink: "/qrCode/" + this.props.email + "/true/" + this.state.cartString
         });
         console.log(this.state.checkoutLink);
         notify.show("Added " + quantity + " " + name + "(s) to your cart!", "custom", 5000, myColor);
