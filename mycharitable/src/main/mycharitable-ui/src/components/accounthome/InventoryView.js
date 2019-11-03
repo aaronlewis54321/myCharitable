@@ -23,7 +23,7 @@ class InventoryView extends Component {
         console.log(this.state.itemList.length);
         var cards = []
         for(var i = 0; i < this.state.itemList.length; i++) {
-           cards.push(<MDBCol md="2" xs="12" style={{marginTop: '5%'}}><CardItem foodName={this.state.itemList[i].name} desc={this.state.itemList[i].description}></CardItem></MDBCol>);
+           cards.push(<MDBCol md="3" xs="12" style={{marginTop: '5%'}}><CardItem foodName={this.state.itemList[i].name} desc={this.state.itemList[i].description}></CardItem></MDBCol>);
         }
         this.setState({
             cardsToDisplay: cards
