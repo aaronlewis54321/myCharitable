@@ -22,7 +22,7 @@ class CheckOut extends Component {
 
         const setCartResponse = fetch(`/api/users/setCart?email=${encodeURIComponent(email)}&isLoggedIn=${encodeURIComponent(isloggedin)}&shoppingCart=${encodeURIComponent(cart)}`);
         const setCartJson = await setCartResponse.json();
-        console.log("setCartJson");
+        console.log(setCartJson);
         if (setCartJson.status === 403) {
             alert('You must be logged in!');
         } else {
