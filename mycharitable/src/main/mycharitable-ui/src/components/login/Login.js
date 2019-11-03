@@ -50,7 +50,7 @@ class Login extends Component {
             this.toggle();
         } else {
                 //console.log("should run callback");
-                this.props.callback(<InventoryView firstName="Naymish"/>);
+                this.props.callback(<InventoryView firstName={this.state.firstName}/>);
         }
     }
 

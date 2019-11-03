@@ -55,7 +55,7 @@ class CardItem extends Component {
                                required
                                onChange={this.handleChange}
                             />
-                            <MDBBtn color="green darken-4">Add to Cart</MDBBtn>
+                            <MDBBtn color="green darken-4" onClick={()=>this.props.addToCart(this.props.foodName, this.props.desc, this.state.value)}>Add to Cart</MDBBtn>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>
