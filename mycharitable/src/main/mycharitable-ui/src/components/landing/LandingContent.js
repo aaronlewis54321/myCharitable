@@ -66,7 +66,7 @@ class LandingContent extends Component {
                             <Card imagePic="/DJ.PNG" name="DJ" />
                         </MDBCol>
                         <MDBCol md="3" style={{ marginTop: '5%' }}>
-                            <Card imagePic="/Adam.jpeg" name="Adam" />
+                            <Card imagePic="/Maddie.jpg" name="Maddie" />
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>

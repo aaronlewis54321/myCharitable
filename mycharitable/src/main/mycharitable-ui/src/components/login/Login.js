@@ -105,7 +105,7 @@ class Login extends Component {
                                         />
                                     </MDBCol>
                                 </MDBRow>
-                                <MDBRow className="justify-content-center" style={{ marginBottom: '10%' }}>
+                                <MDBRow className="justify-content-center" style={{ marginBottom: '20%' }}>
                                     <MDBBtn color="indigo lighten-1" type="submit" style={{color: 'white'}}>Login</MDBBtn>
                                 </MDBRow>
                             </form>
