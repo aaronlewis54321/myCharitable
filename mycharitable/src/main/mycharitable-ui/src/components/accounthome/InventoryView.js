@@ -35,7 +35,7 @@ class InventoryView extends Component {
 
     addToCart(name, description) {
         console.log("Name of new Item: " + name);
-        this.state.cartTable.push(<tr><td>1</td><td>{name}</td><td>{description}</td></tr>);
+        this.state.cartTable.push(<tr><td>{this.state.cartTable.length + 1}</td><td>{name}</td><td>{description}</td></tr>);
         this.state.cartArray.push(name + "\n");
         console.log(this.state.cartArray);
         let myColor = { background: '#25D366', text: "#FFFFFF" };
@@ -43,7 +43,7 @@ class InventoryView extends Component {
             checkoutLink: "/qrCode/" + this.props.email + "/true/" + this.state.cartArray
         });
         console.log(this.state.checkoutLink);
-        notify.show("Added " +  name + "to your cart!", "custom", 5000, myColor);
+        notify.show("Added " +  name + " to your cart!", "custom", 2000, myColor);
     }
 
     async componentDidMount() {
@@ -114,7 +114,6 @@ class InventoryView extends Component {
                             <MDBRow>
                                 <MDBBtn color="danger" onClick={this.clearCart} style={{ marginLeft: '3%' }}>Clear Cart</MDBBtn>
                             </MDBRow>
-                            Wish you the best!
                         </span>
                     </MDBModalBody>
                     <MDBModalFooter>

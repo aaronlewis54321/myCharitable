@@ -14,7 +14,7 @@ class HeroSection extends Component {
                                 <MDBRow style={{ textAlign: 'center', marginTop: '15%' }}>
                                     <MDBCol md="2"></MDBCol>
                                     <MDBCol md="8">
-                                        <h1>Welcome to MyCharitable</h1>
+                                        <h1>Welcome to myCharitable</h1>
                                         <hr></hr>
                                         <h3>An Easy Way to Claim Your Meals</h3>
                                         <MDBBtn rounded outline color="white" style={{ marginTop: '2%' }}><MDBNavLink to="/signup" className="getstartedlink" style={{ fontSize: '0.8em', textDecoration: 'none', color: 'white' }}>Get Registered</MDBNavLink></MDBBtn>
