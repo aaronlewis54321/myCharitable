@@ -52,7 +52,7 @@ class InventoryView extends Component {
         const getItemsResponse = await fetch(`/api/itemlist/getInventory`);
         const getItemsJson = await getItemsResponse.json();
         this.setState({
-            checkoutLink: "/qrCode/" + encodeURIComponent(this.props.email) + "/true/" + this.state.cartString
+            checkoutLink: "/qrCode/" + encodeURIComponent(this.props.email) + "/true/" + encodeURIComponent(this.state.cartString)
         })
         this.setState({ loading: '' });
         this.setState({ itemList: getItemsJson.items });

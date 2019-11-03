@@ -12,6 +12,7 @@ import SignUp from './pages/SignUp';
 import AccountHome from './pages/AccountHome';
 import CheckOut from './pages/CheckOut';
 
+
 function App() {
     return (
         <div>

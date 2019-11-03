@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import QRCode from 'qrcode.react';
 import NavBar from '../components/navigation/NavBar';
 import Footer from '../components/navigation/Footer';
+import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
+import { QRCode } from "react-qr-svg";
 
 class CheckOut extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             linkToCart: ''
@@ -21,12 +22,13 @@ class CheckOut extends Component {
 
         const setCartResponse = fetch(`/api/users/setCart?email=${encodeURIComponent(email)}&isLoggedIn=${encodeURIComponent(isloggedin)}&cart=${encodeURIComponent(cart)}`);
         const setCartJson = await setCartResponse.json();
-        if(setCartJson.status === 403) {
+        console.log("setCartJson");
+        if (setCartJson.status === 403) {
             alert('You must be logged in!');
         } else {
             const getCartResponse = await fetch(`/api/users/getCart?email=${encodeURIComponent(email)}`);
             this.setState({
-                linkToCart: "http://mycharitable.eastus.cloudapp.azure.com:8080/api/users/getCart?email=" + email
+                linkToCart: "http://mycharitable.eastus.cloudapp.azure.com:8080/api/users/getCart?email=" + encodeURIComponent(email)
             });
         }
 
@@ -37,7 +39,21 @@ class CheckOut extends Component {
         return (
             <div>
                 <NavBar />
-                <QRCode value={this.state.linkToCart} />
+                <MDBContainer>
+                    <MDBRow>
+                        <MDBCol md="12">
+                            <h4>Screenshot this QR Code to show to your vendor!</h4>
+                        </MDBCol>
+                    </MDBRow>
+                    <MDBRow>
+                        <QRCode 
+                            bgColor="#FFFFFF"
+                            fgColor="#000000"
+                            level="Q"
+                            style={{ width: 256 }}
+                            value={this.state.linkToCart} />
+                    </MDBRow>
+                </MDBContainer>
                 <Footer />
             </div>
         );
