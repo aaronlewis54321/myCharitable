@@ -11,8 +11,6 @@ class InventoryView extends Component {
             loading: '',
             itemList: []
         }
-        this.moveBackward = this.moveBackward.bind(this);
-        this.moveForward = this.moveForward.bind(this);
     }
 
     async componentDidMount() {
